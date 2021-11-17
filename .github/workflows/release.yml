@@ -24,7 +24,7 @@ jobs:
           echo "priorRelease=$(curl -s -H 'Authorization: token ${{ secrets.PRIOR_VERSION_TOKEN }}' -L https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r .tag_name)" >> $GITHUB_ENV
       - name: generate changelog
         id: changelog
-        uses: heinrichreimer/auto-changelog-action@v2.2
+        uses: heinrichreimer/auto-changelog-action@v2.3
         with:
           token: ${{ secrets.RELEASE_TOKEN }}
           sinceTag: ${{ env.priorRelease }}
